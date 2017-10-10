@@ -1,0 +1,23 @@
+﻿<form ng-if="!constValues" class="const-value-form">
+    <section>
+        <fieldset>
+            <label for="user-name" ng-class="CV.inputFocused.name ? 'label-show' : 'label-hide'">Name:</label>
+            <input id="user-name" type="text" placeholder="Name:" ng-focus="CV.inputFocused.name=true" ng-blur="CV.showInputLabels(CV.inputFocused.name, CV.constValues.name)" ng-model="CV.constValues.name" />
+        </fieldset>
+        
+        <fieldset>
+            <label for="user-team" ng-class="CV.inputFocused.team ? 'label-show' : 'label-hide'">Team:</label>
+            <input id="user-team" type="text" placeholder="Team:" ng-focus="CV.inputFocused.team=true" ng-blur="CV.showInputLabels(CV.inputFocused.team, CV.constValues.team)" ng-model="CV.constValues.team" />
+        </fieldset>
+        {{CV.inputFocused.team}}
+        <fieldset>
+            <label for="user-office" ng-class="CV.inputFocused.office ? 'label-show' : 'label-hide'">Office:</label>
+            <select id="user-office" ng-model="CV.constValues.office" ng-change="CV.showInputLabels(CV.inputFocused.office, CV.constValues.office)">
+                <option value="" disabled selected>Office:</option>
+                <option ng-repeat="office in CV.offices" value="{{office}}">{{office}}</option>
+            </select>
+        </fieldset>
+
+        <!--<button type="submit">Save</button>-->
+    </section>    
+</form>

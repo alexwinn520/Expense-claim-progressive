@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html ng-app="progressiveApp">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progressive OCR</title>
+    <link rel="stylesheet" type="text/css" href="styles/styles.min.css" />
+    <link rel="manifest" href="/manifest.json">
+    <!-- Add to home screen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Weather PWA">
+    <link rel="apple-touch-icon" href="images/icons/icon-152x152.png">
+    <meta name="msapplication-TileImage" content="images/icons/icon-144x144.png">
+    <meta name="msapplication-TileColor" content="#2F3BA2">   
+    <script src="scripts/lib/localforage.min.js"></script>
+    <script src="scripts/lib/angular.min.js"></script>
+    <script src="scripts/lib/angular-resource.min.js"></script>
+    <script src="scripts/lib/angular-localForage.min.js"></script>
+</head>
+<body>
+    <div ng-include="'views/header.html'"></div>
+    <main ng-controller="mainController as main" class="main">
+        <fieldset class="form--image-input">
+            <div class="center-block--width">
+                <h3 class="main-title" ng-if="main.photoPayload.filename === 'Attach File...'">Add your receipt</h3>
+                <input data-file type="file" capture="true" name="receiptImage" id="receiptImage" class="inputfile inputfile-hide" ng-model="main.photoPayload.filename" ng-change="main.uploadImage()" fileread="main.photoPayload.url" />
+                <label for="receiptImage" class="fileUpload-btn fileUpload-btn--input" ng-class="{'fileUpload-btn--focused': buttonFocused}" touch-start touch-end button-event>
+                    <img src="images/img_399333.svg" />
+                    &nbsp;&nbsp;{{main.photoPayload.filename}}
+                </label>
+
+                <div class="form-image-preview">
+                    <img ng-if="main.photoPayload.filename !== 'Attach File...'" ng-src="{{main.photoPayload.url}}" />
+                </div>
+
+                <div class="form-button-container" ng-if="main.photoPayload.filename !== main.inputDefaultSate">
+                    <div ng-click="main.clearImage()" class="fileUpload-btn fileUpload-btn--remove" ng-class="{'fileUpload-btn--remove--focused': buttonFocused}" touch-start touch-end button-event>
+                        <span><img src="images/ic_add_white_24px.svg" /></span>
+                        &nbsp;Clear photo
+                    </div>
+                </div>
+
+                <div class="form-button-container" ng-if="main.photoPayload.filename !== main.inputDefaultSate">
+                    <div ng-click="main.postPhoto(main.photoPayload.url)" class="fileUpload-btn fileUpload-btn--submit" ng-class="{'fileUpload-btn--submit--focused': buttonFocused}" touch-start touch-end button-event>
+                        <img src="images/12313.svg" />
+                        &nbsp;Upload photo
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+        <div class="loader" ng-if="main.loading">
+            <svg viewBox="0 0 32 32" width="32" height="32">
+                <circle id="spinner" cx="16" cy="16" r="14" fill="none"></circle>
+            </svg>
+        </div>
+        <div class="loader--underlay" ng-if="main.loading"></div>
+    </main>
+    <div ng-controller="constValueController as CV" ng-include="'views/constValueForm.html'" class="const-value-section"></div>
+    
+    <script src="scripts/config/config.js"></script>
+    <script src="scripts/controllers/mainController.js"></script>
+    <script src="scripts/controllers/constValueController.js"></script>
+    <script src="scripts/directives/fileUploadDirective.js"></script>
+    <script src="scripts/directives/touchStartDirective.js"></script>
+    <script src="scripts/directives/touchEndDirective.js"></script>
+    <script src="scripts/directives/touchMoveDirective.js"></script>
+    <script src="scripts/directives/touchTapDirective.js"></script>
+    <script src="scripts/directives/buttonEventDirective.js"></script>
+    <script src="scripts/services/ocrService.js"></script>
+    <script src="scripts/app.js"></script>
+    
+    <!--ALL js.min-->
+    <!--<script src="scripts/compressed/app.min.js"></script>-->
+</body>
+</html>

@@ -1,0 +1,118 @@
+﻿@import (reference) 'variables.less';
+@import (reference) 'common.less';
+
+.form--image-input {
+    width:100%;
+    .center-block--page;
+    position: relative;
+    overflow:scroll;
+    & img{
+        width:32px;
+        vertical-align: middle;
+        margin-bottom: 4px;
+    }
+    & .main-title{
+        width: 80%;
+        max-width: 20rem;
+    }
+    & .inputfile-hide {
+        display:none;
+    }
+    & .fileUpload-btn {
+        height: 48px;
+        cursor:pointer;
+        text-align: center;
+        border-color: transparent;
+        border-radius: 0;        
+        font-size: 20px;
+        line-height: 1.6;
+        color: @color-text--light;
+        padding: 5px;
+        margin-bottom: 0;
+        &:hover,&:active,&:focus,&:active:focus{
+            border-color: transparent;
+            box-shadow: transparent;
+            outline:transparent;
+            -webkit-appearance: none;
+            -webkit-box-shadow: none;
+            -moz-box-shadow: none;
+        }        
+    }   
+    & .fileUpload-btn--input{
+        background-color: @color-button;
+        &:hover{
+            background-color: @color-button--hover;
+            border-bottom-color: lighten(@color-button--bottom, 10%);
+        }
+    } 
+    & .inputfile + label {
+        border-bottom: 6px solid @color-button--bottom;
+        width:80%;
+        max-width: 20rem;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        display: inline-block;
+        overflow: hidden;
+        margin-bottom: 1rem;
+    }
+    & .inputfile + label.fileUpload-btn--focused{
+        .btn-focus--general;
+        background-color: @color-button--hover;
+    }
+    & .form-button-container{
+        height:48px;
+        float:left;
+        clear:both;
+        margin: 1rem 0;
+        width:100%;
+        .center-block--width;
+    }
+    & .fileUpload-btn--remove{        
+        border-bottom: 6px solid @color-black;        
+        vertical-align: top;
+        width: 80%;
+        max-width: 20rem;
+        background-color:@color-gray-dark;
+        display:inline-block;
+        & img{
+            transform: rotate(45deg);
+            -webkit-transform: rotate(45deg);
+        }
+        &:hover{
+            background-color:lighten(@color-gray-dark, 10%);
+            border-bottom-color: lighten(@color-black, 10%);
+        }
+    }
+    & .fileUpload-btn--remove--focused{
+        .btn-focus--general;
+        background-color:lighten(@color-gray-dark, 10%);
+    }
+    & .fileUpload-btn--submit{
+        border-bottom: 6px solid darken(@color-rust, 10%);
+        vertical-align: top;
+        width: 80%;
+        max-width: 20rem;
+        background-color: @color-rust;
+        display: inline-block;
+        &:hover{
+            background-color: lighten(@color-rust, 10%);
+            border-bottom-color: @color-rust;
+        }
+    }
+    & .fileUpload-btn--submit--focused{
+        .btn-focus--general;
+        background-color:lighten(@color-rust, 10%);
+    } 
+    & .form-image-preview {
+        margin: 1rem auto;
+        float:left;
+        clear:both;
+        width:33%;
+        max-width:400px;
+        & img {
+            width: 100%;
+            height: auto;
+        }
+    }
+}
+

@@ -1,0 +1,53 @@
+﻿@import (reference) 'variables.less';
+@import (reference) 'common.less';
+
+.header {
+    .display-flex;
+    width: 100%;
+    height: 56px;
+    color: @color-text--light;
+    background: @color-black;
+    position: fixed;
+    font-size: @font-size--h3;
+    padding: 16px 16px 0 16px;
+    will-change: transform;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-align-content: center;
+    -ms-flex-line-pack: center;
+    align-content: center;
+    -webkit-transition: -webkit-transform 0.233s cubic-bezier(0, 0, 0.21, 1) 0.1s;
+    transition: -webkit-transform 0.233s cubic-bezier(0, 0, 0.21, 1) 0.1s;
+    transition: transform 0.233s cubic-bezier(0, 0, 0.21, 1) 0.1s;
+    transition: transform 0.233s cubic-bezier(0, 0, 0.21, 1) 0.1s, -webkit-transform 0.233s cubic-bezier(0, 0, 0.21, 1) 0.1s;
+    z-index: 1000; 
+    & .headerButton {
+        width: 24px;
+        height: 24px;
+        margin-right: 16px;
+        text-indent: -30000px;
+        overflow: hidden;
+        opacity: 0.54;
+        -webkit-transition: opacity 0.333s cubic-bezier(0, 0, 0.21, 1);
+        transition: opacity 0.333s cubic-bezier(0, 0, 0.21, 1);
+        border: none;
+        outline: none;
+        cursor: pointer; 
+    }
+    & #butRefresh {
+        background: url(/images/ic_refresh_white_24px.svg) center center no-repeat; 
+    }
+    & #butAdd {
+        background: url(/images/ic_add_white_24px.svg) center center no-repeat; 
+    }
+    & .header-title {
+        .flex-one;
+        font-weight: 100;
+        font-size: @font-size--h3;
+        margin: 0;      
+    }
+}
+

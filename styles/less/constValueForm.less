@@ -1,0 +1,57 @@
+﻿@import (reference) 'variables.less';
+@import (reference) 'common.less';
+
+.const-value-section{
+    .full-screen;
+    margin-top:-56px;
+    padding-top:56px;
+}
+
+.const-value-form{
+    .flex-one;
+    .full-screen;
+    padding:@padding-reset;
+    background:@color-black;
+    opacity:0.75;
+    & section{
+        background: @color-main-sand;
+        .full-screen;
+        padding:.75rem;
+        & fieldset{
+             margin:1rem 0 .25rem 0;
+             height:80px;
+        }
+        & label, input, select{
+            display:block;
+            float:left;
+            clear:both;
+            font-size:@font-size--p;
+        }
+        & input, select{
+            width:100%;            
+            border-top:none;
+            border-right:none;
+            border-bottom:2px solid @color-gray-med;
+            border-left:none;
+            background:transparent;
+            line-height:2;
+        }
+        & select{
+            height:34px;
+            color:@color-gray-med;
+        }
+        & button{
+            position:relative;
+            float:left;
+            clear:both;
+        }
+    }
+}
+
+.label-show{
+    opacity:1;
+}
+
+.label-hide{
+    opacity:0;
+}
