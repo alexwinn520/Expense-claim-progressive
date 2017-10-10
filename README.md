@@ -1,0 +1,1 @@
+Start of a progressive web app meant to use Optical Character Recognition in order to identify characters from an expense receipt photo taken with a phone's camera, and map them to an expense form. Built using Angular JS and PWA framework.
